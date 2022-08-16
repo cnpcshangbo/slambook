@@ -14,8 +14,8 @@ int main ( int argc, char** argv )
         return 1;
     }
     //-- 读取图像
-    Mat img_1 = imread ( argv[1], CV_LOAD_IMAGE_COLOR );
-    Mat img_2 = imread ( argv[2], CV_LOAD_IMAGE_COLOR );
+    Mat img_1 = imread ( argv[1], IMREAD_COLOR );
+    Mat img_2 = imread ( argv[2], IMREAD_COLOR );
 
     //-- 初始化
     std::vector<KeyPoint> keypoints_1, keypoints_2;
@@ -76,8 +76,8 @@ int main ( int argc, char** argv )
     Mat img_goodmatch;
     drawMatches ( img_1, keypoints_1, img_2, keypoints_2, matches, img_match );
     drawMatches ( img_1, keypoints_1, img_2, keypoints_2, good_matches, img_goodmatch );
-    imshow ( "所有匹配点对", img_match );
-    imshow ( "优化后匹配点对", img_goodmatch );
+    imshow ( "All matches", img_match );
+    imshow ( "Optimized matches", img_goodmatch );
     waitKey(0);
 
     return 0;
